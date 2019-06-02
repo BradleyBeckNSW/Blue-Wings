@@ -21,7 +21,7 @@ public class Main {
 			int task = keyboard.nextInt();
 			switch (task) {
 			case 1: //Create a customer - GUI improvable
-				Customer B = new Customer();
+				Customer tempCust = new Customer();
 				
 				System.out.println("Input first and last name of customer: ");
 				keyboard.nextLine();
@@ -38,10 +38,10 @@ public class Main {
 				setResidence.setAddress();
 				
 				
-				B.addCustomer(setName, setPhone, setEmail, setResidence);
+				tempCust.addCustomer(setName, setPhone, setEmail, setResidence);
 				setResidence.showAddress();
 				
-				B.showCustomer();
+				tempCust.showCustomer();
 
 				break;
 			case 2: //Create a booking
@@ -50,10 +50,10 @@ public class Main {
 			case 3: //Calculate booking payment
 				
 				break;
-			case 4:
+			case 4: //Check boat availabilities
 				
 				break;
-			case 5: 
+			case 5: //quit
 				repeat = false;
 				System.out.println("Goodbye, my friend!");
 				System.out.println("");
