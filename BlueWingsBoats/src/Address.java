@@ -20,11 +20,11 @@ public class Address {
 	public void setAddress() {
 		Scanner key = new Scanner(System.in);
 		System.out.println("Input street name & number: ");
-		streetName = key.next();
+		streetName = key.nextLine();
 		System.out.println("Input suburb: ");
-		suburbName = key.next();
+		suburbName = key.nextLine();
 		System.out.println("Input postcode: ");
-		postCode = key.next();
+		postCode = key.nextLine();
 	}
 	
 	public void showAddress() {
