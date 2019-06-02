@@ -1,12 +1,16 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.sql.*;
 public class Main {
 
 	public static void main(String[] args) {
-		//Boat Penguin = new Boat(2400, true);
-		//Penguin.getDetails();
+
+		@SuppressWarnings("resource")
 		Scanner keyboard = new Scanner(System.in);
 		boolean repeat = true;
+		ArrayList<Customer> temporaryDatabase = new ArrayList<Customer>();
+
 		
 		
 		while (repeat) {
@@ -17,6 +21,7 @@ public class Main {
 			System.out.println("3: Calculate booking payment");		//determinePayment()
 			System.out.println("4: Check boat availabilities");		//searchBoats()
 			System.out.println("5: Quit");							//quit the program
+			System.out.println("5: Check DB");
 			
 			int task = keyboard.nextInt();
 			switch (task) {
@@ -39,8 +44,9 @@ public class Main {
 				
 				
 				tempCust.addCustomer(setName, setPhone, setEmail, setResidence);
-				setResidence.showAddress();
 				
+				temporaryDatabase.add(tempCust);
+				//setResidence.showAddress();
 				tempCust.showCustomer();
 
 				break;
@@ -58,9 +64,17 @@ public class Main {
 				System.out.println("Goodbye, my friend!");
 				System.out.println("");
 				break;
+			case 6: //Check DB
+				System.out.println(temporaryDatabase);
+				System.out.println("input db number: ");
+				int dbPos = keyboard.nextInt();	
+				Customer display = temporaryDatabase.get(dbPos);
+				display.showCustomer();
+				break;
 			}
 			
 		}
+		
 	}
 
 }
