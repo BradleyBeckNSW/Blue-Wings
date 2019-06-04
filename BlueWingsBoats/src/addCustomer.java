@@ -44,8 +44,13 @@ public class addCustomer extends JFrame {
 	 * Create the frame.
 	 */
 	public addCustomer() {
+        setTitle("Add Customer");
+        //make it visible.
+        setVisible(true);
+        
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
+		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -137,7 +142,7 @@ public class addCustomer extends JFrame {
 					deleteCustomer.setInt(1, Integer.parseInt(textField_4.getText()));
 					int update = deleteCustomer.executeUpdate();
 					if (update > 0) {
-						System.out.println("Row inserted.");
+						System.out.println("Row deleted.");
 						textField_4.setText("");
 						JOptionPane.showMessageDialog(null, "Customer deleted successfully.");
 					} else {
