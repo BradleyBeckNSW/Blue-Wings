@@ -11,15 +11,19 @@ public class Database {
 	private Connection connection;
 	private Properties properties;
 	
-	public static void main(String [] args) {
+    
+	
+	public static void main(String[] args) {
 		Database myDatabase = new Database();
-		
 		try {
-			myDatabase.connect();
+			Statement insertCustomer = myDatabase.connect().createStatement();
+			int update = insertCustomer.executeUpdate("insert into customer(name, address, phone, email) VALUES ('carlo', 'mortdale','0421271231', 'jcarloabanto@gmail.com')");
+			System.out.println(update + "Row inserted.");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+	
 	private Properties getProperties() {
 	    if (properties == null) {
 	        properties = new Properties();
