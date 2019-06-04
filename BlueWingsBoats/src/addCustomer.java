@@ -129,10 +129,34 @@ public class addCustomer extends JFrame {
 		contentPane.add(btnAdd);
 		
 		JButton btnDelete = new JButton("DELETE");
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					Database myDatabase = new Database();
+					PreparedStatement deleteCustomer =  myDatabase.connect().prepareStatement(("DELETE from customer WHERE id = ?"));
+					deleteCustomer.setInt(1, Integer.parseInt(textField_4.getText()));
+					int update = deleteCustomer.executeUpdate();
+					if (update > 0) {
+						System.out.println("Row inserted.");
+						textField_4.setText("");
+						JOptionPane.showMessageDialog(null, "Customer deleted successfully.");
+					} else {
+						JOptionPane.showMessageDialog(null, "Customer can't be deleted.");
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}	
+			}
+		});
 		btnDelete.setBounds(327, 150, 117, 29);
 		contentPane.add(btnDelete);
 		
 		JButton btnExit = new JButton("EXIT");
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
 		btnExit.setBounds(327, 206, 117, 29);
 		contentPane.add(btnExit);
 		
